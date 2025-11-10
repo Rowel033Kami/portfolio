@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Gallery</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <h1>Appliction gallery</h1>
+
+<div class="gallery">
+    <div class="gallery-item"><img src="1.png" alt="Photo 1"></div>
+    <div class="gallery-item"><img src="2.png" alt="Photo 2"></div>
+    <div class="gallery-item"><img src="3.png" alt="Photo 3"></div>
+    <div class="gallery-item"><img src="4.png" alt="Photo 4"></div>
+    <div class="gallery-item"><img src="5.png" alt="Photo 5"></div>
+    <div class="gallery-item"><img src="6.png" alt="Photo 6"></div>
+    <div class="gallery-item"><img src="7.png" alt="Photo 7"></div>
+    <div class="gallery-item"><img src="8.png" alt="Photo 8"></div>
+    <div class="gallery-item"><img src="9.png" alt="Photo 9"></div>
+</div>
+
+<script>
+    const images = document.querySelectorAll('.gallery-item img');
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            // Create a new image element for fullscreen
+            const fsImg = document.createElement('img');
+            fsImg.src = img.src;
+            fsImg.style.width = '100%';
+            fsImg.style.height = '100%';
+            fsImg.style.objectFit = 'contain';
+            fsImg.style.background = '#000';
+            fsImg.style.position = 'fixed';
+            fsImg.style.top = '0';
+            fsImg.style.left = '0';
+            fsImg.style.zIndex = '9999';
+
+            // Append to body
+            document.body.appendChild(fsImg);
+
+            // Request true fullscreen
+            if (fsImg.requestFullscreen) {
+                fsImg.requestFullscreen();
+            } else if (fsImg.webkitRequestFullscreen) { /* Safari */
+                fsImg.webkitRequestFullscreen();
+            } else if (fsImg.msRequestFullscreen) { /* IE11 */
+                fsImg.msRequestFullscreen();
+            }
+
+            // Remove image when exiting fullscreen
+            document.addEventListener('fullscreenchange', () => {
+                if (!document.fullscreenElement) {
+                    fsImg.remove();
+                }
+            });
+            document.addEventListener('webkitfullscreenchange', () => {
+                if (!document.webkitFullscreenElement) {
+                    fsImg.remove();
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
