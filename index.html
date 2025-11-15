@@ -28,6 +28,15 @@
 <link rel="stylesheet" href="css/custom.css">
 <script src="js/modernizr.js"></script> <!-- Modernizr -->
 
+<script type="text/javascript" 
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+<script>
+    emailjs.init("sBs_GVkoSIT8w0FuS"); 
+</script>
+
+
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -72,7 +81,7 @@
 						<a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#contact">Contect Me</a>
+						<a class="nav-link js-scroll-trigger" href="#contact">Contact Me</a>
 					</li>
 				</ul>
 			</div>
@@ -82,7 +91,7 @@
 	<section id="home" class="main-banner parallaxie" style="background: url('uploads/background.jpg');">
 		<div class="heading">
 			<h1>The name's Rowel saying...</h1>
-			<p>"A delayed game is eventually good, <br>but a rushed game is forever bad."</p>
+			<p>"A true developer turns complexity into clarity and problems, <br>into opportunities to build something smarter."</p>
 			<h3 class="cd-headline clip is-full-width">
 				<span>Make our world full of </span>
 				<span class="cd-words-wrapper">
@@ -132,15 +141,16 @@
 				<div class="col-md-6">
 					<div class="message-box">
 						<h2 style="color:blue;">About Me.</h2>
-						<p style="color:black;"> I'm Rowel, a future passionate game programmer with a love for creating
-							immersive and engaging digital experiences.My journey into game development will begin with
-							a fascination for how games work and an eagerness to contribute to this dynamic industry.I
-							thrive on solving complex problems and enjoy the challenge of optimizing code to enhance
-							performance and user experience. </p>
-						<p style="color:black;">My projects range from developing interactive game mechanics to crafting
-							compelling narratives and realistic environments. If you're interested in game development
-							or just want to talk about the latest in gaming, feel free to reach out. I'm always excited
-							to connect with fellow enthusiasts and collaborators!</p>
+						<p style="color:black;"> Hi, I’m Rowel Lim, a dedicated and motivated Computer
+							 Science student with a strong passion for creating efficient, user-focused digital 
+							 solutions. I enjoy turning complex ideas into clear, functional systems — whether 
+							 through web development, software engineering, or hands-on hardware projects. 
+							 I’m driven by continuous learning and the challenge of solving real-world problems 
+							 through thoughtful design and clean, maintainable code. </p>
+						<p style="color:black;">I approach every project with attention to detail, a willingness 
+							to improve, and the mindset of building something smarter with each iteration. I aim to 
+							contribute to projects that make technology more intuitive, accessible, and impactful 
+							for the people who use it.</p>
 					</div><!-- end messagebox -->
 				</div><!-- end col -->
 
@@ -324,7 +334,7 @@
 			<div class="section-title text-left">
 				<h3 style="color:blue;">Contact</h3>
 				<p style="color:rgb(0, 0, 0);">Whether you're interested in discussing a potential project, exploring
-					collaboration opportunities, or just want to chat about game development, feel free to reach
+					collaboration opportunities, or just want to chat about system development, feel free to reach
 					out.Let's create something amazing together!</p>
 			</div><!-- end title -->
 
@@ -338,11 +348,13 @@
 									<div class="form-group">
 										<input class="form-control" id="name" type="text" placeholder="Your Name"
 											required="required"
+											name="name"
 											data-validation-required-message="Please enter your name.">
 										<p class="help-block text-danger"></p>
 									</div>
 									<div class="form-group">
 										<input class="form-control" id="email" type="email" placeholder="Your Email"
+										    name="email"
 											required="required"
 											data-validation-required-message="Please enter your email address.">
 										<p class="help-block text-danger"></p>
@@ -350,6 +362,7 @@
 									<div class="form-group">
 										<input class="form-control" id="phone" type="tel" placeholder="Your Phone"
 											required="required"
+											name="phone"
 											data-validation-required-message="Please enter your phone number.">
 										<p class="help-block text-danger"></p>
 									</div>
@@ -358,6 +371,7 @@
 									<div class="form-group">
 										<textarea class="form-control" id="message" placeholder="Your Message"
 											required="required"
+											name="message"
 											data-validation-required-message="Please enter a message."></textarea>
 										<p class="help-block text-danger"></p>
 									</div>
@@ -378,7 +392,21 @@
 
 
 	<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+     <script>
+		document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
+    emailjs.sendForm('service_y69uvff', 'template_r5ihpfd', this)
+        .then(() => {
+            alert("Message sent successfully!");
+            this.reset();
+        }, (err) => {
+            alert("Failed to send message. Please try again.");
+            console.error(err);
+        });
+      });
+
+	 </script>
 	<!-- ALL JS FILES -->
 	<script src="js/all.js"></script>
 	<!-- Camera Slider -->
