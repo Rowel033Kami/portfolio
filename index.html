@@ -378,7 +378,7 @@
 								</div>
 								<!--<div class="clearfix"></div>-->
 								<div class="col-lg-12 text-center">
-									<div id="success"></div>
+									<div id="sent"></div>
 									<button id="sendMessageButton" class="sim-btn btn-hover-new"
 										data-text="Send Message" type="submit">Send Message</button>
 								</div>
@@ -398,6 +398,7 @@
 
     emailjs.sendForm('service_y69uvff', 'template_r5ihpfd', this)
         .then(() => {
+			document.getElementById("sent").innerHTML = "Email sent successfully, Kindly allow some time for me to read and reply. Thankyou";
             alert("Message sent successfully!");
             this.reset();
         }, (err) => {
@@ -424,6 +425,7 @@
 </body>
 
 </html>
+
 
 
 
