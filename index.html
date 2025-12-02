@@ -28,12 +28,11 @@
 <link rel="stylesheet" href="css/custom.css">
 <script src="js/modernizr.js"></script> <!-- Modernizr -->
 
-<script type="text/javascript" 
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
 </script>
 
 <script>
-    emailjs.init("sBs_GVkoSIT8w0FuS"); 
+	emailjs.init("sBs_GVkoSIT8w0FuS"); 
 </script>
 
 
@@ -91,7 +90,8 @@
 	<section id="home" class="main-banner parallaxie" style="background: url('uploads/background.jpg');">
 		<div class="heading">
 			<h1>The name's Rowel saying...</h1>
-			<p>"A true developer turns problems and complexities into <br>clarity and oppotunities to build something smarter."</p>
+			<p>"A true developer turns problems and complexities into <br>clarity and oppotunities to build something
+				smarter."</p>
 			<h3 class="cd-headline clip is-full-width">
 				<span>Make our world full of </span>
 				<span class="cd-words-wrapper">
@@ -142,15 +142,21 @@
 					<div class="message-box">
 						<h2 style="color:blue;">About Me.</h2>
 						<p style="color:black;"> Hi, I’m Rowel Lim, a dedicated and motivated Computer
-							 Science student with a strong passion for creating efficient, user-focused digital 
-							 solutions. I enjoy turning complex ideas into clear, functional systems — whether 
-							 through web development, software engineering, or hands-on hardware projects. 
-							 I’m driven by continuous learning and the challenge of solving real-world problems 
-							 through thoughtful design and clean, maintainable code. </p>
-						<p style="color:black;">I approach every project with attention to detail, a willingness 
-							to improve, and the mindset of building something smarter with each iteration. I aim to 
-							contribute to projects that make technology more intuitive, accessible, and impactful 
+							Science student with a strong passion for creating efficient, user-focused digital
+							solutions. I enjoy turning complex ideas into clear, functional systems — whether
+							through web development, software engineering, or hands-on hardware projects.
+							I’m driven by continuous learning and the challenge of solving real-world problems
+							through thoughtful design and clean, maintainable code. </p>
+						<p style="color:black;">I approach every project with attention to detail, a willingness
+							to improve, and the mindset of building something smarter with each iteration. I aim to
+							contribute to projects that make technology more intuitive, accessible, and impactful
 							for the people who use it.</p>
+						<a href="Resume/Resume of Rowel Lim.pdf" style="display:inline-block; padding:12px 24px; background:#28a745; color:#fff; 
+          text-decoration:none; border-radius:6px; font-family:Arial; font-size:15px;"
+							onmouseover="this.style.background='#218838'" onmouseout="this.style.background='#28a745'">
+							See My Resume
+						</a>
+
 					</div><!-- end messagebox -->
 				</div><!-- end col -->
 
@@ -270,7 +276,7 @@
 								<i class="fa fa-external-link"></i>
 							</a>
 						</div>
-					    
+
 					</div>
 				</div>
 
@@ -283,7 +289,7 @@
 								<i class="fa fa-external-link"></i>
 							</a>
 						</div>
-					    
+
 					</div>
 				</div>
 
@@ -298,7 +304,7 @@
 					</div>
 				</div>
 
-				
+
 				<div class="col-md-4 col-sm-6 gallery-grid gal_c">
 					<div class="gallery-single fix">
 						<object data="uploads/star.jpeg" width="100%" height="250" style="border:0;"></object>
@@ -321,8 +327,8 @@
 						</div>
 					</div>
 				</div>
-               
-    
+
+
 			</div>
 		</div>
 	</div>
@@ -347,22 +353,19 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<input class="form-control" id="name" type="text" placeholder="Your Name"
-											required="required"
-											name="name"
+											required="required" name="name"
 											data-validation-required-message="Please enter your name.">
 										<p class="help-block text-danger"></p>
 									</div>
 									<div class="form-group">
 										<input class="form-control" id="email" type="email" placeholder="Your Email"
-										    name="email"
-											required="required"
+											name="email" required="required"
 											data-validation-required-message="Please enter your email address.">
 										<p class="help-block text-danger"></p>
 									</div>
 									<div class="form-group">
 										<input class="form-control" id="phone" type="tel" placeholder="Your Phone"
-											required="required"
-											name="phone"
+											required="required" name="phone"
 											data-validation-required-message="Please enter your phone number.">
 										<p class="help-block text-danger"></p>
 									</div>
@@ -370,8 +373,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<textarea class="form-control" id="message" placeholder="Your Message"
-											required="required"
-											name="message"
+											required="required" name="message"
 											data-validation-required-message="Please enter a message.">
 											</textarea>
 									</div>
@@ -392,22 +394,22 @@
 
 
 	<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-     <script>
-		document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+	<script>
+		document.getElementById('contactForm').addEventListener('submit', function (e) {
+			e.preventDefault();
 
-    emailjs.sendForm('service_y69uvff', 'template_r5ihpfd', this)
-        .then(() => {
-			document.getElementById("sent").innerHTML = "Email sent successfully, Kindly allow some time for me to read and reply. Thankyou";
-            alert("Message sent successfully!");
-            this.reset();
-        }, (err) => {
-            alert("Failed to send message. Please try again.");
-            console.error(err);
-        });
-      });
+			emailjs.sendForm('service_y69uvff', 'template_r5ihpfd', this)
+				.then(() => {
+					document.getElementById("sent").innerHTML = "Email sent successfully, Kindly allow some time for me to read and reply. Thankyou";
+					alert("Message sent successfully!");
+					this.reset();
+				}, (err) => {
+					alert("Failed to send message. Please try again.");
+					console.error(err);
+				});
+		});
 
-	 </script>
+	</script>
 	<!-- ALL JS FILES -->
 	<script src="js/all.js"></script>
 	<!-- Camera Slider -->
@@ -425,9 +427,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
